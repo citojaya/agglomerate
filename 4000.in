@@ -1,0 +1,135 @@
+###:##:wq
+###########################################################################
+#
+#The general format for input file
+#                              
+#HEADER                                                                      
+#(numbers)                                                                   
+#                                                                            
+#The header must start in the first column  and must be in uppercase letters.
+#The numbers must always begin in the line immediately following the header. 
+################################################################################
+#
+
+################################################################################
+#
+#BOX PARAMETER
+#NWALL (1: z; 2: xyz; ) 
+#XYRAD  TOPHEIGHT  BOTTOMEHEIGH
+#GXYRAD  GTOPH  GBOTTOMH      ! REGION FOR GENERATING NEW PARTICLES
+#top lid velocity
+#bottom velocity
+################################################################################
+#
+BOX
+2
+22.21 8.88 0 
+22.21 6.36 0
+0.0 0.0 -0.001
+0.0 0.0 0.0
+################################################################################
+#
+#PARTICLE PARAMETERS
+#                                                                            
+#
+#SIZEDISTRIBUTION                                                            
+#
+#d(discrete) or c(continous)                                                 
+#
+#                                                                            
+#
+#REALSIZE                                                                    
+#
+#Actual size of largest particles                                            
+#
+#                                                                            
+#
+#INITIALVELOCITY                                                             
+#
+#Initial velocity of particle in m/s                                         
+#
+################################################################################
+#
+REALSIZE
+8.908326667e-6
+
+SIZEDISTRIBUTION
+d
+
+INITIALVELOCITY
+1e-3
+#######################################################################
+# type of material properties (first line is wall)
+# number
+# np0(0)  dia(0)  density  ha  emod  pois  sfric  rfric  dmpn y_pressure
+# np1  dia1  ....
+# npn  ...
+#######################################################################
+MATERIALTYPE
+1
+0     	0.0  	 2.5e3  		0.0  		1e7 	 0.29  0.3  2e-3 	1e-6  	1e6
+4000  	1.0 	 2.681e3  	6e-20   1e7 	 0.29  0.3  2e-3 	1e-6  	1e6
+
+CUTGAP
+0.5
+
+VGAPMIN
+10e-10
+
+############################################################
+# Bond parameter
+# Radius multiplier
+# Young's moduli of narmal 
+# ration of normal and shear stiffness
+# tensile and shear strength
+###########################################################
+BOND
+0.7
+1.00E+08 
+1.0
+2.00E+06 2.00E+06 
+0
+############################################################
+#LIQUID PROPERTIES
+#SURFACE_TENSION, LIQUID_VOLUME, LIQUID_MINUM_GAP, CONTACT_ANGLE
+###########################################################
+LIQUIDPROPERTY
+0.073 0.0003 5e-8 0.0
+0
+############################################################
+# compaction parameter
+# compaction stage (0=packing  1=compaction)
+# compaction initial strain rate
+# desired final stress (Pa)
+###########################################################
+COMPACTION
+1
+0.2
+0.0
+
+############################################################
+# impact parameter
+# position (x  y  z) (unit particle diameter)
+# velocity (vx  vy  vz) (m/s)
+###########################################################
+IMPACT
+0.0 0.0 0.0
+0.0 0.0 0.0
+
+###########################################################
+# simulation parameters
+# total sim Time  current time  checkpoint time (hr)
+# feeding  tecplot  analyse  dump
+# dtFactor
+# centrapetal force (particle gravity)
+###########################################################
+SIMULATION
+2 0.0  8
+0.001  0.001  0.0001  0.001
+0.02
+1.0
+
+
+
+
+
