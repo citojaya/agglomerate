@@ -1,2 +1,2 @@
 ## Agglomerate
-C++ code used for particle agglomerate analysis
+Particle agglomerate analysis using DEM
